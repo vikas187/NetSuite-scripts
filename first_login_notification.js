@@ -15,7 +15,7 @@ define(['N/search', 'N/email', 'N/runtime', 'N/format'], (search, email, runtime
             }
 
             // Load saved search
-            const mySearch = search.load({ id: 'customsearch4513' });
+            const mySearch = search.load({ id: 'customsearch4513' }); // make sure correct saved search id is here from your account
 
             mySearch.run().each(result => {
                 const firstLoginDateStr = result.getValue({ name: 'date', join:"loginAuditTrail", summary: search.Summary.MIN });
@@ -31,7 +31,7 @@ define(['N/search', 'N/email', 'N/runtime', 'N/format'], (search, email, runtime
                 const now = new Date();
                 const diffMinutes = (now.getTime() - firstLoginDate.getTime()) / (1000 * 60);
 
-                // if (diffMinutes >= 0 && diffMinutes <= 15) {
+                if (diffMinutes >= 0 && diffMinutes <= 20) {
                     log.audit('First Login Detected', `${userName} logged in within last 15 minutes.`);
 
                     log.debug(recipientEmail)
@@ -51,7 +51,7 @@ define(['N/search', 'N/email', 'N/runtime', 'N/format'], (search, email, runtime
 
                             Security Note: If you weren’t expecting this login, investigate immediately.`
                     });
-                //}
+                }
 
                 return true; // Continue to next result
             });
