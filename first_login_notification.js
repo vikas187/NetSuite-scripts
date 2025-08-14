@@ -7,7 +7,7 @@ define(['N/search', 'N/email', 'N/runtime', 'N/format'], (search, email, runtime
     function execute() {
         try {
             const scriptObj = runtime.getCurrentScript();
-            const recipientEmail = scriptObj.getParameter({ name: 'custscript_admin_list' });
+            const recipientEmail = scriptObj.getParameter({ name: 'custscript_admin_id' });
 
             if (!recipientEmail) {
                 log.error('Missing Email Param', 'Please set admin emails on deployment.');
