@@ -37,7 +37,7 @@ define(['N/search', 'N/email', 'N/runtime', 'N/format'], (search, email, runtime
                     log.debug(recipientEmail)
                     // Send email
                     email.send({
-                        author: "3726266", 
+                        author: "-4", 
                         recipients: recipientEmail,
                         subject: 'First Login Alert — Welcome Our New NetSuite Explorer!',
                         body: `Heads up! 
